@@ -42,10 +42,14 @@ code {
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 8px 32px;
+  padding: 8px 8px;
   color: #fff;
   border-radius: 8px;
   margin: 10px 0;
+}
+
+.button p {
+  margin: 0px;
 }
 
 .avatar {
@@ -72,4 +76,18 @@ code {
 .balance {
   font-weight: 500;
   font-size: 16px;
+}
+
+.buttons-container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.sign-button {
+  border: 1px solid blueviolet !important;
+  margin-left: 16px;
+  background-color: white !important;
+  color: blueviolet !important
 }

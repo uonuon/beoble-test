@@ -2,8 +2,15 @@ import React, { useEffect, useState } from "react";
 import { useAccountData } from "../hooks/useAccountData";
 
 const UserBox: React.FC = () => {
-  const { name, avatar, accountBalanace, setAddress, resetAccount } =
-    useAccountData();
+  const {
+    name,
+    avatar,
+    accountBalanace,
+    setAddress,
+    resetAccount,
+    message,
+    signMessage,
+  } = useAccountData();
   const [defaultAccount, setDefaultAccount] = useState("");
   const [connectButtonText, setConnectButtonText] = useState("Connect Wallet");
 
@@ -21,7 +28,7 @@ const UserBox: React.FC = () => {
           setConnectButtonText("Disconnect Wallet");
         });
     } else {
-      console.log("Need to install MetaMask");
+      alert("Need to install MetaMask");
     }
   };
 
@@ -31,7 +38,7 @@ const UserBox: React.FC = () => {
 
   useEffect(() => {
     if (defaultAccount) {
-      setAddress("0x5555763613a12D8F3e73be831DFf8598089d3dCa");
+      setAddress(defaultAccount);
     }
   }, [defaultAccount]);
 
@@ -43,16 +50,27 @@ const UserBox: React.FC = () => {
 
   return (
     <div className="user-card">
-      <div className="button" onClick={connectWalletHandler}>
-        <p>{connectButtonText}</p>
-      </div>
       {avatar && <img className="avatar" src={avatar} />}
       {name && <p className="name">Name: {name}</p>}
       <p className="address">{defaultAccount}</p>
       {accountBalanace && (
         <p className="balance">Balance: {accountBalanace} ETH</p>
       )}
-      {window.ethereum.chainId && <p>Chain ID: {window.ethereum.chainId}</p>}
+      <div className="buttons-container">
+        <div className="button" onClick={connectWalletHandler}>
+          <p>{connectButtonText}</p>
+        </div>
+
+        {!message && defaultAccount && (
+          <div className="button sign-button" onClick={signMessage}>
+            <p>Sign Message</p>
+          </div>
+        )}
+      </div>
+      {message && <p>Hashed message: {message}</p>}
+      {window.ethereum && window.ethereum.chainId && (
+        <p>Chain ID: {window.ethereum.chainId}</p>
+      )}
     </div>
   );
 };
