@@ -6,7 +6,8 @@ Beoble
 
 ## Screenshots
 
-`(./screenshot/img.jpg)`
+[`([./screenshot/img.jpg](https://github.com/uonuon/beoble-test/blob/main/screenshot/img.jpg))`
+](https://github.com/uonuon/beoble-test/blob/main/screenshot/img.jpg)
 ## Technologies
 I used `React`, `Vite`, `Typescript`, `Ether.js`
 
