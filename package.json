@@ -1,14 +1,25 @@
 {
-  "name": "beable-test",
+  "name": "beoble-test",
   "version": "1.0.0",
   "description": "This is a test for connecting a wallet and displaying a user interface",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev": "vite",
+    "build": "tsc && vite build",
+    "preview": "vite preview"
   },
-  "author": "",
+  "author": "Philemono",
   "license": "MIT",
   "devDependencies": {
-    "prettier": "^2.7.1"
+    "prettier": "^2.7.1",
+    "@types/react": "^18.0.15",
+    "@types/react-dom": "^18.0.6",
+    "@vitejs/plugin-react": "^1.0.7",
+    "typescript": "^4.7.4",
+    "vite": "^2.8.0"
+  },
+  "dependencies": {
+    "react": "^18.0.15",
+    "react-dom": "^18.0.6"
   }
 }
